@@ -1,10 +1,12 @@
 apiVersion: v1
 kind: Secret
 metadata:
-  name: photo-service 
+  name: photo-secret
   namespace: praveen-ns 
 stringData:
   MONGODB_URI: "mongodb://mongo-service:27017/artgallery"
+  MONGODB_AUTH_URI: mongodb://localhost:27017/artgallery
+  MONGODB_FEEDBACK_URI: mongodb://localhost:27017/artgallery
 
 ---
 
@@ -33,6 +35,24 @@ spec:
           ports:
             - containerPort: 3000
           image: praveenx03/photo-studio:v1.1.0
+          env:
+            - name: MONGODB_URI
+              valueFrom:
+                secretKeyRef:
+                  name: photo-secret
+                  key: MONGODB_URI
+            - name: MONGODB_AUTH_URI
+              valueFrom:
+                secretKeyRef:
+                  name: photo-secret
+                  key: MONGODB_AUTH_URI
+            - name: MONGODB_FEEDBACK_URI
+              valueFrom:
+                secretKeyRef:
+                  name: photo-secret
+                  key: MONGODB_FEEDBACK_URI
+            
+
 
 
 ---
