@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: studio-ingress
-  namespace: studio-ns
+  namespace: praveen-ns
   annotations:
     # Add these two lines
     kubernetes.io/ingress.class: "haproxy"
@@ -16,6 +16,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: studio-service
+            name: photo-service
             port:
               number: 3004
