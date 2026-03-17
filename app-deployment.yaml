@@ -3,7 +3,7 @@ kind: Secret
 metadata:
   name: photo-service 
   namespace: praveen-ns 
-data:
+stringData:
   MONGODB_URI: "mongodb://mongo-service:27017/artgallery"
 
 ---
