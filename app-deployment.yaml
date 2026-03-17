@@ -4,7 +4,7 @@ metadata:
   name: photo-secret
   namespace: praveen-ns 
 stringData:
-  MONGODB_URI: "mongodb://mongo-service:27017/artgallery"
+  MONGODB_URI: "mongodb://mongo-service:27017/"
   MONGODB_AUTH_URI: mongodb://localhost:27017/artgallery
   MONGODB_FEEDBACK_URI: mongodb://localhost:27017/artgallery
 
