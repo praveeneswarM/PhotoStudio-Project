@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: photo-service 
+  namespace: praveen-ns 
+data:
+  MONGODB_URI: "mongodb://mongo-service:27017/artgallery"
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: photo-deploy 
+  namespace: praveen-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: photo
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: photo
+    spec:
+      containers:
+        - name: photo-container 
+          ports:
+            - containerPort: 3000
+          image: praveenx03/photo:v1.1.0
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: photo-service
+  namespace: praveen-ns
+spec:
+  selector:
+    app: photo
+  ports:
+  - port: 3000
+    targetPort: 3000
+  type: NodePort
