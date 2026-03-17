@@ -32,7 +32,7 @@ spec:
         - name: photo-container 
           ports:
             - containerPort: 3000
-          image: praveenx03/photo:v1.1.0
+          image: praveenx03/photo-studio:v1.1.0
 
 
 ---
