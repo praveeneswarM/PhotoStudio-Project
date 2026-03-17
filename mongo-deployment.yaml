@@ -28,7 +28,7 @@ metadata:
   namespace: praveen-ns
 spec:
   selector:
-    app: photo
+    app: mongo-db
   ports:
   - port: 27017
     targetPort: 27017
