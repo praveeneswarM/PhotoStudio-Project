@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: studio-ingress
+  namespace: studio-ns
+  annotations:
+    # Add these two lines
+    kubernetes.io/ingress.class: "haproxy"
+    haproxy-ingress.github.io/rewrite-target: /
+spec:
+  ingressClassName: haproxy
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: studio-service
+            port:
+              number: 3004
