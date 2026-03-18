@@ -32,6 +32,13 @@ spec:
     spec:
       containers:
         - name: photo-container 
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "200m"
           ports:
             - containerPort: 3000
           image: praveenx03/photo-studio:v1.1.0
