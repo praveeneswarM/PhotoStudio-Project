@@ -42,11 +42,11 @@ spec:
           preferredDuringSchedulingIgnoredDuringExecution:
           - weight: 1
             preference:
-              - matchExpressions:
-                  - key: worker
-                    operator: In 
-                    values:
-                      - node1
+              matchExpressions:
+                - key: worker
+                  operator: In 
+                  values:
+                    - node1
         # podAffinity:
         #   requiredDuringSchedulingIgnoredDuringExecution:
         #     - labelSelector:
