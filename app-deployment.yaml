@@ -31,14 +31,14 @@ spec:
         app: photo
     spec:
       affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-              - matchExpressions:
-                  - key: worker
-                    operator: In 
-                    values:
-                      - node1
+        # nodeAffinity:
+        #   requiredDuringSchedulingIgnoredDuringExecution:
+        #     nodeSelectorTerms:
+        #       - matchExpressions:
+        #           - key: worker
+        #             operator: In 
+        #             values:
+        #               - node1
           preferredDuringSchedulingIgnoredDuringExecution:
           - weight: 1
             preference:
