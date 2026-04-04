@@ -47,6 +47,13 @@ spec:
                   operator: In 
                   values:
                     - node1
+          - weight: 10
+            preference:
+              matchExpressions:
+                - key: app
+                  operator: In 
+                  values:
+                    - backendNode
         # podAffinity:
         #   requiredDuringSchedulingIgnoredDuringExecution:
         #     - labelSelector:
