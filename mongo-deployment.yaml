@@ -4,26 +4,6 @@ metadata:
   name: mongo-db 
   namespace: praveen-ns
 spec:
-  affinity:
-    nodeAffinity:
-      podAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpression:
-                - key: app
-                  operator: In
-                  values:
-                    - backendNode 
-        # podAntiAffinity:  
-        #   preferredDuringSchedulingIgnoredDuringExecution:
-        #     - weight: 100
-        #       podAffinityTerm:
-        #         labelSelector:
-        #           matchExpression:
-        #             - key: worker
-        #               values:
-        #                 - node1 
-        #               operator: NotIn
   replicas: 2
   selector:
     matchLabels:
@@ -33,6 +13,26 @@ spec:
       labels:
         app: mongo-db
     spec:
+      affinity:
+      nodeAffinity:
+        podAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpression:
+                  - key: app
+                    operator: In
+                    values:
+                      - backendNode 
+          # podAntiAffinity:  
+          #   preferredDuringSchedulingIgnoredDuringExecution:
+          #     - weight: 100
+          #       podAffinityTerm:
+          #         labelSelector:
+          #           matchExpression:
+          #             - key: worker
+          #               values:
+          #                 - node1 
+          #               operator: NotIn
       containers:
         - name: mongo-db
           ports:
