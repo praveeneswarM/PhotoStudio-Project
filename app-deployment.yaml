@@ -54,24 +54,6 @@ spec:
                   operator: In 
                   values:
                     - node1
-        # podAffinity:
-        #   requiredDuringSchedulingIgnoredDuringExecution:
-        #     - labelSelector:
-        #         matchExpression:
-        #           - key: app
-        #             operator: In
-        #             values:
-        #               - backendNode 
-        #   podAntiAffinity:  
-        #     preferredDuringSchedulingIgnoredDuringExecution:
-        #       - weight: 100
-        #         podAffinityTerm:
-        #           labelSelector:
-        #             matchExpression:
-        #               - key: app
-        #                 values:
-        #                   - backendNode 
-        #                 operator: In
 
       containers:
         - name: photo-container 
