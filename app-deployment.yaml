@@ -31,7 +31,7 @@ spec:
         app: photo
     spec:
       affinity:
-        # nodeAffinity:
+        nodeAffinity:
         #   requiredDuringSchedulingIgnoredDuringExecution:
         #     nodeSelectorTerms:
         #       - matchExpressions:
