@@ -21,7 +21,7 @@ spec:
                     - key: app
                       operator: In
                       values:
-                        - backendNode 
+                        - photo 
                 topologyKey: "kubernetes.io/hostname"
             # podAntiAffinity:  
             #   preferredDuringSchedulingIgnoredDuringExecution:
