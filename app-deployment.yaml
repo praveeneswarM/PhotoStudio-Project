@@ -30,8 +30,42 @@ spec:
       labels:
         app: photo
     spec:
-      nodeSelector:
-        worker: node1
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpression:
+                  - key: worker
+                    operator: In 
+                    values:
+                      - node1
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 1
+            preference:
+              - matchExpression:
+                  - key: worker
+                    operator: In 
+                    values:
+                      - node1
+        # podAffinity:
+        #   requiredDuringSchedulingIgnoredDuringExecution:
+        #     - labelSelector:
+        #         matchExpression:
+        #           - key: app
+        #             operator: In
+        #             values:
+        #               - backendNode 
+        #   podAntiAffinity:  
+        #     preferredDuringSchedulingIgnoredDuringExecution:
+        #       - weight: 100
+        #         podAffinityTerm:
+        #           labelSelector:
+        #             matchExpression:
+        #               - key: app
+        #                 values:
+        #                   - backendNode 
+        #                 operator: In
+
       containers:
         - name: photo-container 
           resources:
