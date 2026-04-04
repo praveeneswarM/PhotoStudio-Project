@@ -22,18 +22,17 @@ spec:
           #             operator: In
           #             values:
           #               - photo 
-                # topologyKey: "kubernetes.io/hostname"
-            podAntiAffinity:  
-              preferredDuringSchedulingIgnoredDuringExecution:
-                - weight: 100
-                  podAffinityTerm:
-                    labelSelector:
-                      matchExpressions:
-                        - key: app
-                          values:
-                            - photo 
-                          operator: NotIn
-                    topologyKey: "kubernetes.io/hostname"
+          #       topologyKey: "kubernetes.io/hostname"
+          podAntiAffinity:
+            requiredDuringSchedulingIgnoredDuringExecution:
+              - labelSelector:
+                  matchExpressions:
+                    - key: app
+                      operator: In
+                      values:
+                        - photo 
+                topologyKey: "kubernetes.io/hostname"
+            
       containers:
         - name: mongo-db
           ports:
