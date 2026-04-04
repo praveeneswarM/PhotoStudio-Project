@@ -42,7 +42,7 @@ spec:
           preferredDuringSchedulingIgnoredDuringExecution:
           - weight: 1
             preference:
-              - matchExpression:
+              - matchExpressions:
                   - key: worker
                     operator: In 
                     values:
