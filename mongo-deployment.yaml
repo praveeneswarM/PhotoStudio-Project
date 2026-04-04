@@ -14,16 +14,16 @@ spec:
                   operator: In
                   values:
                     - backendNode 
-        podAntiAffinity:  
-          preferredDuringSchedulingIgnoredDuringExecution:
-            - weight: 100
-              podAffinityTerm:
-                labelSelector:
-                  matchExpression:
-                    - key: app
-                      values:
-                        - backendNode 
-                      operator: In
+        # podAntiAffinity:  
+        #   preferredDuringSchedulingIgnoredDuringExecution:
+        #     - weight: 100
+        #       podAffinityTerm:
+        #         labelSelector:
+        #           matchExpression:
+        #             - key: worker
+        #               values:
+        #                 - node1 
+        #               operator: NotIn
   replicas: 2
   selector:
     matchLabels:
