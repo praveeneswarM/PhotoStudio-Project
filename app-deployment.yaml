@@ -34,7 +34,7 @@ spec:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
-              - matchExpression:
+              - matchExpressions:
                   - key: worker
                     operator: In 
                     values:
