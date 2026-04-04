@@ -17,7 +17,7 @@ spec:
           podAffinity:
             requiredDuringSchedulingIgnoredDuringExecution:
               - labelSelector:
-                  matchExpression:
+                  matchExpressions:
                     - key: app
                       operator: In
                       values:
@@ -27,7 +27,7 @@ spec:
             #     - weight: 100
             #       podAffinityTerm:
             #         labelSelector:
-            #           matchExpression:
+            #           matchExpressions:
             #             - key: worker
             #               values:
             #                 - node1 
