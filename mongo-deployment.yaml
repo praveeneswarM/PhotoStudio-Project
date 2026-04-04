@@ -22,6 +22,7 @@ spec:
                       operator: In
                       values:
                         - backendNode 
+                topologyKey: "kubernetes.io/hostname"
             # podAntiAffinity:  
             #   preferredDuringSchedulingIgnoredDuringExecution:
             #     - weight: 100
