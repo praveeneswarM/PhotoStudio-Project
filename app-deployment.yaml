@@ -16,7 +16,7 @@ metadata:
   name: photo-deploy 
   namespace: praveen-ns
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: photo
@@ -30,6 +30,8 @@ spec:
       labels:
         app: photo
     spec:
+      nodeSelector:
+        worker: node1
       containers:
         - name: photo-container 
           resources:
