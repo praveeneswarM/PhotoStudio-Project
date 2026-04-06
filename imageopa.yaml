@@ -13,7 +13,7 @@ spec:
         package k8srequiredresources
  
         violation[{"msg": msg}] {
-          container := input.review.object.spec.template.spec.containers[_]
+          container := input.review.object.spec.containers[_]
           endswith(container.image,":latest")
           msg := sprintf("Container %v must not have latest image", [container.name])
         }
