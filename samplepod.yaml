@@ -4,8 +4,8 @@ metadata:
   name: test-latest
 spec:
   containers:
-    - name: nginx:latest
-      image: nginx
+    - name: nginx
+      image: nginx:latest
       resources:
         limits:
           cpu: "500m"
