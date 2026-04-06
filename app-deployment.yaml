@@ -30,30 +30,35 @@ spec:
       labels:
         app: photo
     spec:
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-              - matchExpressions:
-                  - key: node
-                    operator: In 
-                    values:
-                      - worker
-          preferredDuringSchedulingIgnoredDuringExecution:
-          - weight: 10
-            preference:
-              matchExpressions:
-                - key: beta.kubernetes.io/os
-                  operator: In 
-                  values:
-                    - linux
-          - weight: 20
-            preference:
-              matchExpressions:
-                - key: worker
-                  operator: In 
-                  values:
-                    - node1
+      # affinity:
+      #   nodeAffinity:
+      #     requiredDuringSchedulingIgnoredDuringExecution:
+      #       nodeSelectorTerms:
+      #         - matchExpressions:
+      #             - key: node
+      #               operator: In 
+      #               values:
+      #                 - worker
+      #     preferredDuringSchedulingIgnoredDuringExecution:
+      #     - weight: 10
+      #       preference:
+      #         matchExpressions:
+      #           - key: beta.kubernetes.io/os
+      #             operator: In 
+      #             values:
+      #               - linux
+      #     - weight: 20
+      #       preference:
+      #         matchExpressions:
+      #           - key: worker
+      #             operator: In 
+      #             values:
+      #               - node1
+      tolerations:
+      - key: "node"
+        operator: "Equal"
+        value: "worker1"
+        effect: "NoSchedule"
 
       containers:
         - name: photo-container 
