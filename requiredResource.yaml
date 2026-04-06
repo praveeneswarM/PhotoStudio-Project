@@ -1,9 +1,8 @@
 apiVersion: constraints.gatekeeper.sh/v1beta1
-kind: K8sCommonPolicy
+kind: K8sRequiredResources
 metadata:
-  name: enforce-common-policy
+  name: require-resource-limits
 spec:
-  enforcementAction: deny
   match:
     kinds:
       - apiGroups: [""]
