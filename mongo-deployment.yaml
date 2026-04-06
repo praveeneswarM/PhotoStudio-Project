@@ -37,7 +37,7 @@ spec:
         - name: mongo-db
           ports:
             - containerPort: 27017
-          image: mongo:7.0
+          image: mongo:latest
 ---
 apiVersion: v1
 kind: Service
