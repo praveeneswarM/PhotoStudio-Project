@@ -13,7 +13,7 @@ spec:
         package k8srequiredresources
  
         violation[{"msg": msg}] {
-          container := input.review.object.spec.containers[_]
+          container := input.review.object.spec.template.spec.containers[_]
           not container.resources.limits
           msg := sprintf("Container %v must have resources limits", [container.name])
         }
